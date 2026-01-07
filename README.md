@@ -48,9 +48,11 @@ Plaintext
 
 resonance/
 │
-├── index.html      # DOM structure, HUD overlays, and Canvas container
-├── style.css       # Glassmorphism UI, gradients, and layout
-└── script.js       # Audio Context logic, Particle Class, and Render Loop
+├── index.html      
+├── style.css       
+└── script.js       
+
+
 🚀 How to Run Locally
 ⚠️ Important: Because this project uses the Microphone and File APIs, modern browsers require it to be served via HTTPS or localhost. It will not work if you simply double-click index.html.
 
@@ -69,12 +71,12 @@ Python:
 Bash
 
 python -m http.server
-# Open http://localhost:8000
+Open http://localhost:8000
 Node.js:
 
 Bash
 
 npx serve
-# Open http://localhost:3000
+Open http://localhost:3000
 📄 License
 This project is open source and available under the MIT License.
