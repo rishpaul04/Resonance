@@ -12,7 +12,7 @@ This project demonstrates advanced frontend engineering concepts, including real
 
 
 🔗 Live Demo
-Click here to view the Live Demo
+https://resonancee.netlify.app/
 
 ✨ Key Features
 🎙️ Live Audio Analysis: Captures real-time audio via the MediaStream API (Microphone) with zero latency.
