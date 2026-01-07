@@ -1,0 +1,115 @@
+:root {
+    --primary: #0080ffb7;
+    --secondary: #bd00ff;
+    --bg: #050505;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: var(--bg);
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Canvas handles the visuals */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* The Overlay Screen */
+#overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transition: all 0.5s ease;
+}
+
+#overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.1);
+}
+
+/* Drag & Drop Active State */
+#overlay.drag-active {
+    border: 4px dashed var(--primary);
+    background: rgba(0, 243, 255, 0.1);
+}
+
+.content { text-align: center; }
+
+h1 {
+    font-size: 4rem;
+    letter-spacing: 10px;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 20px var(--primary);
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.divider { font-size: 0.8rem; color: #666; }
+
+/* Cyberpunk Buttons */
+.glow-btn {
+    padding: 15px 40px;
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.glow-btn:hover {
+    background: var(--primary);
+    color: black;
+    box-shadow: 0 0 30px var(--primary);
+}
+
+
+#hud {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 1s 0.5s;
+}
+
+#hud.visible { opacity: 1; }
+
+.track-info {
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px white;
+}
+
+#resetBtn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.7);
+    padding: 10px 20px;
+    cursor: pointer;
+}
+#resetBtn:hover { border-color: white; color: white; }

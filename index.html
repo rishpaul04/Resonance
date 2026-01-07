@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resonance</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="overlay">
+        <div class="content">
+            <h1>Audio Visualizer</h1>
+            <p>Select Input Source to Start</p>
+            
+            <div class="buttons">
+                <button id="micBtn" class="glow-btn">🎤 Use Microphone</button>
+                <div class="divider">OR</div>
+                <input type="file" id="fileInput" accept="audio/*" hidden>
+                <button id="fileBtn" class="glow-btn">📁 Upload MP3</button>
+            </div>
+            <p class="subtext">or drag and drop an audio file anywhere</p>
+        </div>
+    </div>
+
+    <div id="hud">
+        <div class="track-info">
+            <span id="statusText">WAITING FOR INPUT...</span>
+        </div>
+        <div class="controls">
+            <button id="resetBtn">RESET SYSTEM</button>
+        </div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
