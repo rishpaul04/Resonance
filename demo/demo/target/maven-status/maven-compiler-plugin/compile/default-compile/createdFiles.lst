@@ -1,0 +1,4 @@
+com\resonance\backend\BackendApplication.class
+com\resonance\backend\handler\TranscriptionHandler.class
+com\resonance\backend\config\WebSocketConfig.class
+com\resonance\backend\service\GeminiService.class
