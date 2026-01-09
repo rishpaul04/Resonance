@@ -1,82 +1,78 @@
-Here is the updated README.md with the project officially titled Resonance.
+# Resonance: Real-Time Audio Visualizer & Transcription
 
-🔊 Resonance - Audio Visualization Interface
-Resonance is a high-performance, interactive circular audio visualizer built with Vanilla JavaScript and the HTML5 Web Audio API.
+**Resonance** is a full-stack web application that combines real-time audio visualization with AI-powered speech-to-text transcription. It captures microphone input, visualizes it using a circular frequency equalizer, and streams the audio data to a Spring Boot backend, which processes it using Google's Gemini Pro AI model.
 
-This project demonstrates advanced frontend engineering concepts, including real-time media stream processing, complex canvas rendering, and physics-based animation loops.
+🔴 **Live Site:** []  
+*(If running locally: http://localhost:8080/index.html)*
 
-<img width="1919" height="898" alt="image" src="https://github.com/user-attachments/assets/6ef2d8bb-3add-4f57-ba60-71f5988b248d" />
-<img width="1919" height="913" alt="image" src="https://github.com/user-attachments/assets/696b8cbc-cee4-48a9-a7c0-e5d4e6056295" />
+## 🚀 Features
 
+* **Interactive UI:** A circular audio equalizer built with the Web Audio API and HTML5 Canvas.
+* **Real-Time Visualization:** Dynamic particle effects and frequency bars that react to audio input.
+* **Live Streaming:** Streams raw audio data from the browser to the server via WebSockets.
+* **AI Transcription:** Integrates with **Google Gemini Pro** to transcribe speech into text in real-time.
+* **Reactive Backend:** Built with Spring Boot WebFlux for non-blocking, high-performance data handling.
 
+## 🛠️ Tech Stack
 
+* **Frontend:** HTML5, CSS3, Vanilla JavaScript, Web Audio API.
+* **Backend:** Java 17, Spring Boot (WebFlux, WebSocket).
+* **AI Service:** Google Gemini API (gemini-pro).
+* **Build Tool:** Maven.
 
-🔗 Live Demo
-https://resonancee.netlify.app/
+## 📋 Prerequisites
 
-✨ Key Features
-🎙️ Live Audio Analysis: Captures real-time audio via the MediaStream API (Microphone) with zero latency.
+Before running the application, ensure you have the following installed:
+* **Java 17** or higher.
+* **Maven** (optional, as the wrapper `mvnw` is included).
+* A **Google Gemini API Key** (from Google AI Studio).
 
-📂 Drag & Drop Support: Supports interactive file playback; simply drag any audio file (MP3, WAV, etc.) onto the interface.
+## ⚙️ Setup & Installation
 
-💿 Circular Rendering Engine: Maps linear frequency data to a polar coordinate system for a symmetrical, circular display.
+1.  **Clone the Repository**
+    ```bash
+    git clone [https://github.com/rishitapaul/resonance-audio-transcription.git](https://github.com/rishitapaul/resonance-audio-transcription.git)
+    cd resonance-audio-transcription
+    ```
 
-🖱️ 3D Parallax UI: The interface features a depth effect that tilts and shifts based on mouse position.
+2.  **Configure API Key**
+    * Open `src/main/resources/application.properties`.
+    * Add your Google Gemini API key:
+        ```properties
+        gemini.api.key=YOUR_ACTUAL_API_KEY_HERE
+        ```
+    * *Note: If pushing to a public repository, do not commit your real API key.*
 
-✨ Particle Physics: A custom particle system reacts dynamically to bass frequencies (low-end thumping).
+3.  **Build and Run**
+    Open a terminal in the project root and run:
+    ```bash
+    # Windows
+    ./mvnw spring-boot:run
 
-⚡ 60 FPS Performance: Optimized rendering loop using requestAnimationFrame for buttery smooth visuals.
+    # Mac/Linux
+    ./mvnw spring-boot:run
+    ```
 
-🛠️ Technical Implementation
-1. The Audio Pipeline
-The core logic relies on the Web Audio API's AnalyserNode.
+4.  **Access the Application**
+    * Once the terminal says `Started BackendApplication`, open your browser.
+    * Go to: **http://localhost:8080/index.html**
 
-Source: Audio is routed from navigator.mediaDevices.getUserMedia (Mic) or createMediaElementSource (File).
+## 🎤 How to Use
 
-FFT Analysis: The AnalyserNode performs a Fast Fourier Transform to provide frequency data (0-255) for the visual spectrum.
+1.  Open the web interface in your browser.
+2.  Click the **"Use Microphone"** button in the center.
+3.  Allow microphone permissions when prompted.
+4.  Speak clearly into your microphone.
+5.  Watch the visualizer react to your voice and see the transcription appear at the bottom of the screen in real-time.
 
-2. The Math (Polar Coordinates)
-To create the circular structure, Cartesian coordinates (x,y) are calculated from the audio data index using trigonometry:
+## 📂 Project Structure
 
-x=centerx+cos(θ)×(radius+amplitude)
-y=centery+sin(θ)×(radius+amplitude)
-3. Beat Detection Algorithm
-Instead of a static animation, Resonance pulses to the beat. This is achieved by calculating the average volume of the lowest 20 frequency bins (Sub-bass/Bass) and mapping that value to the circle's radius and particle speed.
-
-📦 Project Structure
-Plaintext
-
-resonance/
-│
-├── index.html      
-├── style.css       
-└── script.js       
-
-
-🚀 How to Run Locally
-⚠️ Important: Because this project uses the Microphone and File APIs, modern browsers require it to be served via HTTPS or localhost. It will not work if you simply double-click index.html.
-
-Clone the repository:
-
-Bash
-
-git clone https://github.com/rishpaul04/resonance.git
-cd resonance
-Start a local server (Choose one method):
-
-VS Code (Recommended): Right-click index.html and select "Open with Live Server".
-
-Python:
-
-Bash
-
-python -m http.server
-Open http://localhost:8000
-Node.js:
-
-Bash
-
-npx serve
-Open http://localhost:3000
-📄 License
-This project is open source and available under the MIT License.
+```text
+├── src
+│   ├── main
+│   │   ├── java/com/resonance/backend  # Backend Source Code
+│   │   └── resources
+│   │       ├── static                  # Frontend (HTML, CSS, JS)
+│   │       └── application.properties  # Config
+├── pom.xml                             # Maven Dependencies
+└── README.md                           # Documentation
